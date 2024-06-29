@@ -26,4 +26,6 @@ public/favicon.ico
 public/robots.txt
 public/logo.svg
 
-*/node_modules
+/node_modules
+
+/src/logo.svg

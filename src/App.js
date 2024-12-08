@@ -1,6 +1,6 @@
 import React from 'react';
 import Meals from "./Components/Meals/Meals";
-import {useState} from "react";
+import { useState, useEffect } from 'react';
 import CartContext from "./store/cart-context";
 import FilterMeals from "./Components/FilterMeals/FilterMeals";
 import Cart from "./Components/Cart/Cart";
@@ -56,15 +56,28 @@ const MEALS_DATA = [
 ];
 
 const App = () => {
+    const [mealsData, setMealsData] = useState([]);
+    const [filteredMeals, setFilteredMeals] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5001/api/meals')
+            .then(response => response.json())
+            .then(data => {
+                setMealsData(data);
+                setFilteredMeals(data); 
+            })
+            .catch(err => console.error('Error fetching meals:', err));
+    }, []);
+
 
     //Filter meals
     const FilterHandler = (keyword)=>{
-        const newMealsData = MEALS_DATA.filter(item => item.title.toLocaleLowerCase().indexOf(keyword) !== -1);
-        setMealsData(newMealsData);
+        const newFilteredMeals = mealsData.filter(item => item.title.toLowerCase().includes(keyword.toLowerCase()));
+        setFilteredMeals(newFilteredMeals);
 
     };
 
-    const [mealsData, setMealsData] = useState(MEALS_DATA);
+    // const [mealsData, setMealsData] = useState(MEALS_DATA);
 
     //store cart data 1. Meal[] 2. total amount 3. total price
     const [cartData, setCartData] = useState({

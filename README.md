@@ -3,7 +3,7 @@ Mobile Burger Order App
 ### **Overview**
 The Mobile Burger Order App is a full-stack application designed to streamlin the process of ordering burgers. It provides an intuitive interface for users to manager their orders and checkout seamlessly. Built using React for the frontend, Node.js for the backend and MongoDB for the database. 
 
-![main page](https://github.com/yhe428/Online-blog-project/blob/main/page.png)
+![main page]([https://github.com/yhe428/Online-blog-project/blob/main/page.png](https://github.com/yhe428/mobile-burger-order-app/blob/main/main_page.png?raw=true))
 
 
 
